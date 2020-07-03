@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 // Importing routes.
-// const userRoutes = require("./Routes/users");
+const leadRoutes = require("./Routes/leads");
 
 // Database Connection.
 mongoose.connect('mongodb://localhost:27017/leadmanagementsystem', {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
@@ -28,7 +28,7 @@ app.use((request, response, next) => {
 
 
 // Using routes here.
-// app.use("/api/users", userRoutes);
+app.use("/api/leads", leadRoutes);
 
 app.use((request, response, next) => {
 	const error = new Error("Invalid request.");
